@@ -1,0 +1,121 @@
+﻿  <Window x:Class="Guse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Guse" d:DataContext="{d:DesignInstance Type=local:Beam}"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="Auto" Height="Auto" >
+    <Grid x:Name="Guse">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="223*"/>
+            <ColumnDefinition Width="577*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Label Content="Guse Bilgi Girişi" FontWeight="Bold"/>
+        <StackPanel Grid.IsSharedSizeScope="True" Grid.Row="1" >
+            <GroupBox Header="Malzeme" Name="grb_Malzeme">
+                <!--Groupbox içerisinde grid tanımlayıp bunları rowlarla bölüyorum. Bu şekilde düzenli olarak bilgi giriş panelinde alacağım bilgiler için textbox ve labelları sıralamış oluyorum-->
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="baslık"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Gridler tanımlandıktan sonra bunların içerisine kontrolleri yani textbox ve labelları atamak kalıyor.-->
+                    <Label Content="Fck (MPa)"/>
+                    <TextBox Name="txt_Fck" Grid.Column="1" Text="{Binding Fck}"/>
+
+                    <Label Grid.Row="1" Content="Fyk (MPa)"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Fyk}"/>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="Guse" Name="grb_Guse" >
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="baslık"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Name="lbl_Paspayi" Content="Paspayı (cm)"/>
+                    <TextBox Name="txt_PasPayi" Grid.Column="1" Text="{Binding Paspayi, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Label Grid.Row="1" Name="lbl_Hd" Content="Hd (cm)"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Hd, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Label Grid.Row="2" Name="lbl_Vd" Content="Vd (cm)"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="txt_Vd" Text="{Binding Vd, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Label Grid.Row="3" Name="lbl_Av" Content="Av (cm)"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="txt_Av" Text="{Binding Av, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Label Grid.Row="4" Name="lbl_H" Content="H (cm)"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Name="txt_H" Text="{Binding H, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Placeholder for the TextBox itself -->
+                                    <AdornedElementPlaceholder x:Name="txt_H"/>
+                                    <TextBlock Margin="10" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+
+                    <Label Grid.Row="5" Name="lbl_Bw" Content="Bw (cm)"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Name="txt_Bw" Text="{Binding Bw, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Label Grid.Row="6" Name="lbl_Alin" Content="Alın Yüksekliği (cm)"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" Name="txt_alin" Text="{Binding G_alin, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Label Grid.Row="7" Name="lbl_d_üssü" Content="Efektif Yükseklik (cm)"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" Name="txt_d" Text="{Binding D,Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
+
+                    <Label Grid.Row="8" Name="lbl_mu" Content="Sürtünme katsayısı"/>
+                    <TextBox Grid.Row="8" Grid.Column="1" Name="txt_mu" Text="{Binding Mu, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Label Grid.Row="9" Name="lbl_Ast" Content="Gerekli Ast"/>
+                    <TextBox Grid.Row="9" Grid.Column="1" Name="txt_Ast"/>
+
+                    <Label Grid.Row="10" Name="lbl_Asw" Content="Gerekli Asv"/>
+                    <TextBox Grid.Row="10" Grid.Column="1" Name="txt_Asw"/>
+
+                    <Label Grid.Row="11" Name="lbl_arka" Content="2d/3"/>
+                    <TextBox Grid.Row="11" Grid.Column="1" Name="txt_arka"/>
+                </Grid>
+            </GroupBox>
+        </StackPanel>
+
+        <Button x:Name="btn_Hesapla" Content="Hesapla" VerticalAlignment="Top" HorizontalAlignment="Center" Height="35" Width="100" Grid.Row="2" Click="btn_Hesapla_Click"/>
+
+        <Image x:Name="img_Guse" HorizontalAlignment="Center" Height="373" VerticalAlignment="Top" Width="544" Source="/Guse.png" Grid.Column="1" Grid.Row="1" />
+                
+    </Grid>
+</Window>
