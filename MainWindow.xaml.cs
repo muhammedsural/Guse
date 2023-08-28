@@ -23,9 +23,8 @@ namespace Guse
         public MainWindow()
         {
             InitializeComponent();
-            //12.5d,2,20.5d,3,50,28.5d
-            this.beam = new Beam() { Vd = 12.5d, Av = 2, Hd = 20.5d, Paspayi = 3, H = 50, G_alin = 28.5d, Bw=50,Mu=1 };
-            this.mat = new Material() { Fck = 30, Fyk = 420 };
+            this.beam = new Beam() { Vd = 12.5d, Av = 2, Hd = 10d, Paspayi = 3, H = 50, G_alin = 28.5d, Bw=50,Mu=1 };
+            this.mat = new Material() { Fck = 25, Fyk = 420 };
 
             this.grb_Malzeme.DataContext = this.mat;
             this.grb_Guse.DataContext = this.beam;
@@ -42,6 +41,14 @@ namespace Guse
         private async void btn_Hesapla_Click(object sender, RoutedEventArgs e)
         {
             bool result = await GeomCheckAsync(beam);
+
+            if (!result)
+            {
+                MessageBox.Show("Girdiğiniz boyu bilgilerini kontrol ediniz...");
+            }
+
+            double Vd_max = await helper.Check_Vd(beam.H,beam.Av,beam.Vd,beam.D,beam.Bw,mat.Fck);
+            beam.Hd = await helper.Check_Hd(beam.Hd, beam.Vd);
 
             double An  = helper.Calc_An(beam,mat);
             double As  = helper.Calc_As(beam,mat);

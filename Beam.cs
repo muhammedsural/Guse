@@ -51,8 +51,18 @@ public class Beam : PropChanger, IDataErrorInfo
     public double Vd
     {
         get { return vd; }
-        set { vd = value;
-            OnPropertyChanged(nameof(vd));
+        set
+        {
+            if (value == 0 || value == null)
+            {
+                throw new Exception(nameof(value) + "is not null or zero");
+            }
+            else
+            {
+                vd = value;
+                OnPropertyChanged(nameof(Vd));
+            }
+
         }
     }
     
@@ -60,8 +70,18 @@ public class Beam : PropChanger, IDataErrorInfo
     public double Hd
     {
         get { return hd; }
-        set { hd = value;
-            OnPropertyChanged(nameof(hd));
+        set
+        {
+            if (value == 0 || value == null)
+            {
+                throw new Exception(nameof(value) + "is not null or zero");
+            }
+            else
+            {
+                hd = value;
+                OnPropertyChanged(nameof(Hd));
+            }
+
         }
     }
     
@@ -69,16 +89,38 @@ public class Beam : PropChanger, IDataErrorInfo
     public double Av
     {
         get { return av; }
-        set { av = value; OnPropertyChanged(nameof(av)); }
+        set
+        {
+            if (value == 0 || value == null)
+            {
+                throw new Exception(nameof(value) + "is not null or zero");
+            }
+            else
+            {
+                av = value;
+                OnPropertyChanged(nameof(Av));
+            }
+
+        }
     }
     
     private double paspayi;
     public double Paspayi
     {
         get { return paspayi; }
-        set { paspayi = value; 
-            OnPropertyChanged(nameof(Paspayi));
-            OnPropertyChanged(nameof(D)); }
+        set
+        {
+            if (value == 0 || value == null)
+            {
+                throw new Exception(nameof(value) + "is not null or zero");
+            }
+            else
+            {
+                paspayi = value;
+                OnPropertyChanged(nameof(paspayi));
+                OnPropertyChanged(nameof(D));
+            }
+        }
     }
 
     private double h;
@@ -111,21 +153,57 @@ public class Beam : PropChanger, IDataErrorInfo
     public double G_alin
     {
         get { return g_alin; }
-        set { g_alin = value; OnPropertyChanged(nameof(G_alin)); }
+        set 
+        {
+            if (value == 0 || value == null)
+            {
+                throw new Exception(nameof(value) + "is not null or zero");
+            }
+            else
+            {
+                g_alin = value;
+                OnPropertyChanged(nameof(G_alin));
+            }
+            
+        }
     }
 
     private double mu;
     public double Mu
     {
         get { return mu; }
-        set { mu = value; OnPropertyChanged(nameof(mu)); }
+        set
+        {
+            if (value == 0 || value == null)
+            {
+                throw new Exception(nameof(value) + "is not null or zero");
+            }
+            else
+            {
+                mu = value;
+                OnPropertyChanged(nameof(Mu));
+            }
+
+        }
     }
 
     private double bw;
     public double Bw
     {
         get { return bw; }
-        set { bw = value; OnPropertyChanged(nameof(bw)); }
+        set
+        {
+            if (value == 0 || value == null)
+            {
+                throw new Exception(nameof(value) + "is not null or zero");
+            }
+            else
+            {
+                bw = value;
+                OnPropertyChanged(nameof(Bw));
+            }
+
+        }
     }
 
     

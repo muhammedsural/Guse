@@ -65,19 +65,19 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Name="lbl_Paspayi" Content="Paspayı (cm)"/>
-                    <TextBox Name="txt_PasPayi" Grid.Column="1" Text="{Binding Paspayi, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Name="txt_PasPayi" Grid.Column="1" Text="{Binding Paspayi, UpdateSourceTrigger=LostFocus}"/>
 
                     <Label Grid.Row="1" Name="lbl_Hd" Content="Hd (cm)"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Hd, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Hd, UpdateSourceTrigger=Default}"/>
 
                     <Label Grid.Row="2" Name="lbl_Vd" Content="Vd (cm)"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Name="txt_Vd" Text="{Binding Vd, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="txt_Vd" Text="{Binding Vd, UpdateSourceTrigger=LostFocus}"/>
 
                     <Label Grid.Row="3" Name="lbl_Av" Content="Av (cm)"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Name="txt_Av" Text="{Binding Av, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="txt_Av" Text="{Binding Av, UpdateSourceTrigger=LostFocus}"/>
 
                     <Label Grid.Row="4" Name="lbl_H" Content="H (cm)"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Name="txt_H" Text="{Binding H, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                    <TextBox Grid.Row="4" Grid.Column="1" Name="txt_H" Text="{Binding H, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -90,16 +90,16 @@
                     </TextBox>
 
                     <Label Grid.Row="5" Name="lbl_Bw" Content="Bw (cm)"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" Name="txt_Bw" Text="{Binding Bw, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Name="txt_Bw" Text="{Binding Bw, UpdateSourceTrigger=LostFocus}"/>
 
                     <Label Grid.Row="6" Name="lbl_Alin" Content="Alın Yüksekliği (cm)"/>
-                    <TextBox Grid.Row="6" Grid.Column="1" Name="txt_alin" Text="{Binding G_alin, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" Name="txt_alin" Text="{Binding G_alin, UpdateSourceTrigger=LostFocus}"/>
 
                     <Label Grid.Row="7" Name="lbl_d_üssü" Content="Efektif Yükseklik (cm)"/>
-                    <TextBox Grid.Row="7" Grid.Column="1" Name="txt_d" Text="{Binding D,Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
+                    <TextBox Grid.Row="7" Grid.Column="1" Name="txt_d" Text="{Binding D,Mode=OneWay, UpdateSourceTrigger=LostFocus}" IsEnabled="False" />
 
                     <Label Grid.Row="8" Name="lbl_mu" Content="Sürtünme katsayısı"/>
-                    <TextBox Grid.Row="8" Grid.Column="1" Name="txt_mu" Text="{Binding Mu, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="8" Grid.Column="1" Name="txt_mu" Text="{Binding Mu, UpdateSourceTrigger=LostFocus}"/>
 
                     <Label Grid.Row="9" Name="lbl_Ast" Content="Gerekli Ast"/>
                     <TextBox Grid.Row="9" Grid.Column="1" Name="txt_Ast"/>
